@@ -1,0 +1,29 @@
+.H1 {
+  font-weight: 900;
+  margin: 10px;
+  size: 45px;
+  margin-bottom: 50px;
+}
+input {
+  width: 100%;
+  font-size: 25px;
+  font-weight: 500;
+  border: none;
+  border-bottom: 2px solid rgb(59, 3, 55);
+  /* border-radius: 5px; */
+}
+
+.toDo-row {
+  margin: 10px 3px;
+}
+.container {
+  text-align: left;
+}
+.bnt-add {
+  min-width: 80px;
+}
+.text {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 500;
+}

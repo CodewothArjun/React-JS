@@ -1,0 +1,85 @@
+header {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  border: none;
+  font-size: 17px;
+  margin: 0 15px;
+  padding: 10px;
+  background: white;
+}
+
+.active {
+  background-color: rgb(227, 227, 227);
+  border-radius: 5px;
+}
+button:hover {
+  border-radius: 5px;
+  background-color: rgb(227, 227, 227);
+  cursor: pointer;
+}
+
+.nav {
+  display: flex;
+}
+
+.right-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 50px;
+}
+
+.iconr {
+  padding: 6px;
+  margin: 3px;
+}
+.iconr:hover {
+  background-color: rgb(227, 227, 227);
+  cursor: pointer;
+}
+
+.CanvaPic {
+  margin-top: 40px;
+  height: 80%;
+}
+.outer {
+  border-bottom: 1px solid gray;
+}
+
+.top-sec {
+  display: flex;
+  justify-content: space-between;
+  height: 80vh;
+}
+
+.left-side {
+  position: relative;
+  top: 160px;
+  margin-left: 30px;
+}
+.content-text {
+  font-size: 70px;
+}
+
+.continue-btn {
+  background-color: rgb(137, 64, 255);
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+}
+
+.lower {
+  display: flex;
+  align-items: center;
+}
+
+.desc-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 30px;
+}
