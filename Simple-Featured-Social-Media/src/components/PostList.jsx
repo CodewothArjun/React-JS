@@ -1,32 +1,34 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import Post from "./Post";
 import { PostList as PostListData } from "../store/Post-list-store";
 import WelcomeMessage from "./WelcomeMessage";
+import LoadingSpinner from "./LoadingSpinner";
 const PostList = () => {
   const { postlist, addInitialPosts } = useContext(PostListData);
-
-  const handleGetPost = async () => {
-    try {
-      const res = await fetch("https://dummyjson.com/posts");
-      if (res.status === 200) {
-        const data = await res.json();
+  const [fetching, setFetching] = useState(false);
+  useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+    setFetching(true);
+    fetch("https://dummyjson.com/posts", { signal })
+      .then((res) => res.json())
+      .then((data) => {
         addInitialPosts(data.posts);
-      } else throw Error("Unable to fetch");
-    } catch (err) {
-      console.error(err);
-    } finally {
-      console.log(postlist);
-    }
-  };
+        setFetching(false);
+      });
+    return () => {
+      console.log("Cleanup useEffect");
+      controller.abort();
+    };
+  }, []);
 
   return (
     <>
       <div className="Posts">
-        {postlist && postlist.length === 0 ? (
-          <WelcomeMessage onClickGetPost={handleGetPost} />
-        ) : (
-          postlist && postlist.map((post) => <Post post={post} key={post.id} title={post.title} content={post.content}/>)
-        )}
+        {fetching && <LoadingSpinner />}
+        {!fetching && postlist && postlist.length === 0 && <WelcomeMessage />}
+        {!fetching &&
+          postlist.map((post) => <Post post={post} key={post.id} />)}
       </div>
     </>
   );

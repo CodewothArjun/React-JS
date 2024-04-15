@@ -1,6 +1,6 @@
 import { RiEmotionSadLine } from "react-icons/ri";
 
-const WelcomeMessage = ({ onClickGetPost }) => {
+const WelcomeMessage = () => {
   return (
     <>
       <div className="px-4 py-5 my-5 text-center centered">
@@ -12,11 +12,7 @@ const WelcomeMessage = ({ onClickGetPost }) => {
         </div>
 
         <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <button
-            type="button"
-            className="btn btn-primary btn-lg px-4 gap-3"
-            onClick={() => onClickGetPost()}
-          >
+          <button type="button" className="btn btn-primary btn-lg px-4 gap-3">
             Fetch New Data
           </button>
         </div>
