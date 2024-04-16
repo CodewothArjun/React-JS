@@ -1,0 +1,22 @@
+.container {
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 50px;
+  padding: 10px;
+}
+.H1 {
+  font-weight: 900;
+  font-size:5rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+p {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+span{
+  color: blue;
+  font-weight: 600;
+}
