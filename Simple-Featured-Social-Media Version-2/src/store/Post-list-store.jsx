@@ -8,7 +8,6 @@ import {
 
 export const PostList = createContext({
   postlist: [],
-  fetching: false,
   addPost: () => {},
   deletePost: () => {},
 });
@@ -56,24 +55,8 @@ const PostListProvider = ({ children }) => {
     [dispatchPostlist]
   );
 
-  const [fetching, setFetching] = useState(false);
-  useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
-    setFetching(true);
-    fetch("https://dummyjson.com/posts", { signal })
-      .then((res) => res.json())
-      .then((data) => {
-        addInitialPosts(data.posts);
-        setFetching(false);
-      });
-    return () => {
-      controller.abort();
-    };
-  }, []);
-
   return (
-    <PostList.Provider value={{ postlist, addPost, fetching, deletePost }}>
+    <PostList.Provider value={{ postlist, addPost, deletePost }}>
       {children}
     </PostList.Provider>
   );
